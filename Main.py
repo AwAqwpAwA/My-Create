@@ -7,11 +7,9 @@ from Block import * # 导入 方块 模块
 
 window = pygame.display.set_mode(Win) # 设置 窗口
 pygame.display.set_caption(title) # 设置 窗口名
+pygame.init()
 FPS = pygame.time.Clock() # 创建时钟
-print("获取系统中所有可用字体",pygame.font.get_fonts())
 Font = pygame.font.SysFont('microsoftyaheiui',20)
-
-print(Read_texture(铜矿石.texture))
 
 HUD = True # 是否显示 HUD
 
@@ -33,6 +31,8 @@ while True : # 主循环
             M_y //= 32
         if 事件.type == pygame.KEYDOWN:
             if 事件.key == pygame.K_h : HUD = Change(HUD)
+
+    Set_texture(铜矿石,48,48)
 
     if HUD :
         绘制矩形("black",M_x * 32 + 48 , M_y * 32 + 48 ,32,32,1)
